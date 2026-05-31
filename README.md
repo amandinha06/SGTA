@@ -43,27 +43,27 @@ Interface administrativa do Django
 
 # 🐳 Executando com Docker
 
-# Pré-requisitos
+Pré-requisitos
 Docker Desktop
 Docker Compose
 
-#Clonar o repositório
+Clonar o repositório
 git clone https://github.com/amandinha06/SGTA.git
 cd SGTA
 
-# Subir os containers
+Subir os containers
 docker compose up --
 
-# Executar as migrações
+Executar as migrações
 Em outro terminal:
 
 docker compose exec web python manage.py migrate
 
-# Criar usuário administrador
+Criar usuário administrador
 docker compose exec web python manage.py createsuperuser
 Acessar a aplicação
 
-# Sistema:
+Sistema:
 
 http://localhost:8000
 
