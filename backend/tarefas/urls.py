@@ -1,22 +1,24 @@
 from django.urls import path
-from .views import listar_tarefas
-from .views import listar_tarefas_abertas
-from .views import tarefas_urgentes
-from .views import tarefas_nao_urgente
-from .views import buscar_id
-from .views import busca_dupla
-from .views import tarefas_atrasadas
-from .views import busca_palavra
+from . import views
 
 urlpatterns = [
-    path('tarefas/', listar_tarefas),
-    path('abertas/', listar_tarefas_abertas),
-    path('urgentes/', tarefas_urgentes),
-    path('naourgentes/', tarefas_nao_urgente),
-    path('tarefas/<int:id>/', buscar_id),
-    path('abertasugentes/', busca_dupla),
-    path('atrasadas/', tarefas_atrasadas),
-    path('tarefas/<str:palavra>/', busca_palavra)
-]
 
-# rotas
+    # GET
+    path('tarefas/', views.listar_tarefas),
+    path('tarefas/abertas/', views.listar_tarefas_abertas),
+    path('tarefas/urgentes/', views.tarefas_urgentes),
+    path('tarefas/nao_urgente/', views.tarefas_nao_urgente),
+    path('tarefas/<int:id>/', views.buscar_id),
+    path('tarefas/dupla/', views.busca_dupla),
+    path('tarefas/atrasadas/', views.tarefas_atrasadas),
+    path('tarefas/busca/<str:palavra>/', views.busca_palavra),
+
+    # POST
+    path('tarefas/criar/', views.criar_tarefa),
+
+    # PUT
+    path('tarefas/<int:id>/atualizar/', views.atualizar_tarefa),
+
+    # DELETE
+    path('tarefas/<int:id>/remover/', views.remover_tarefa),
+]
